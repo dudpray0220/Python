@@ -1,0 +1,1021 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = \"aa\"\n",
+    "b = \"AA\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a!=b"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a==b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 미션1. ~ 모든 데이터에 \"LEDTV_\" 접두어를 붙여라  (for문)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetList = [\"UN001\", \"UN002\", \"UN003\", \"UN004\"]\n",
+    "\n",
+    "preFix = \"LEDTV_\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetList[0] = preFix + targetList[0]\n",
+    "targetList[1] = preFix + targetList[1]\n",
+    "targetList[2] = preFix + targetList[2]\n",
+    "targetList[3] = preFix + targetList[3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetList"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list( range(0, 4, 1) ) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetListLen = len(targetList)\n",
+    "targetListLen"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# i를 0부터 4까지 1씩 증가를 시킨다.\n",
+    "# for문의 헤더가 끝나는 지점 \":\"을 써줘야 한다.\n",
+    "# 구문은 tab들여쓰기로 컴퓨터가 인식하게 해준다.\n",
+    "for i in range(0, targetListLen, 1):   # for문 헤더\n",
+    "    targetList[i] = preFix + targetList[i]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetList"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### while문으로 같은 작업!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetList = [\"UN001\", \"UN002\", \"UN003\", \"UN004\"]\n",
+    "\n",
+    "preFix = \"LEDTV_\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "i = 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# while문의 헤더의 종결점은 \":\" 써줘야 한다\n",
+    "# 구문은 tab 들여쓰기를 해야한다.\n",
+    "while(i < 4):\n",
+    "    targetList[i] = preFix + targetList[i]\n",
+    "    # while문은 반복문 마지막에 자동증가 안해줌!\n",
+    "    i = i + 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "targetList"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### tvList2 = [ 'UN40EN001', 'UN40EN002’,'UN40EN003', 'UN40EN004’]리스트가 출력되도록 하세요\n",
+    "#### for문"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 리스트 생성\n",
+    "targetList = [\"EN001\", \"EN002\", \"EN003\", \"EN004\"]\n",
+    "preFix = \"UN40E\"\n",
+    "\n",
+    "# 리스트 길이 변수에 담기\n",
+    "targetListLen = len(targetList)\n",
+    "\n",
+    "# for문 작성\n",
+    "for i in range(0, targetListLen):\n",
+    "    targetList[i] = preFix + targetList[i]\n",
+    "    \n",
+    "# 리스트 출력\n",
+    "tvList2 = targetList\n",
+    "print(tvList2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### while문"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 리스트 생성\n",
+    "targetList = [\"EN001\", \"EN002\", \"EN003\", \"EN004\"]\n",
+    "preFix = \"UN40E\"\n",
+    "\n",
+    "# 리스트 길이 변수에 담기\n",
+    "targetListLen = len(targetList)\n",
+    "\n",
+    "# while문에 쓰일 변수 i 초기화\n",
+    "i = 0\n",
+    "\n",
+    "# while문 작성\n",
+    "while (i < targetListLen):\n",
+    "    targetList[i] = preFix + targetList[i]\n",
+    "    i = i + 1\n",
+    "    \n",
+    "# 리스트 출력\n",
+    "tvList2 = targetList\n",
+    "print(tvList2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "scoreList = [50, 60, 70, 100]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "scoreLabel = \"D\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "score = 60"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 점수가 50점 미만인 경우\n",
+    "if score < 50:\n",
+    "    scoreLabel = \"D\"\n",
+    "elif score <80:\n",
+    "    scoreLabel = \"B\"\n",
+    "else: \n",
+    "    scoreLabel = \"A\"\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "scoreLabel"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## PPT 참고\n",
+    "testModel = \"UN40EN001\"\n",
+    "preFix = \"LEDTV_\"\n",
+    "\n",
+    "# preFix가 없으면 붙여라\n",
+    "if testModel.count(preFix) == 0:\n",
+    "    testModel = preFix + testModel\n",
+    "else:\n",
+    "    pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "testModel"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 머릿속 생각 (순서도)!!! -> 그다음 코딩!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Step1: 리스트에 있는 데이터를 하나씩 확인하자\n",
+    "# Step2: 리스트 아이템 별 preFix 개수를 확인하자\n",
+    "# Step3: preFix >= 2 \"LEDTV_LEDTV_UN\" \"LETV_\"\n",
+    "#                     LEDTV_를 전부 공백으로 REPLACE (전부없앤다)\n",
+    "#                     앞에다가 preFix를 붙이자\n",
+    "#        preFix == 1 -> pass\n",
+    "#        preFix < 1 -> preFix를 붙이자!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### SCORE  변수를 80으로 선언 후 90점이상 A, 80~90점 B, 이외 C 점수로 GRADE변수에 할당하는 프로그램을 구현하세요"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 변수선언, grade변수 초기화\n",
+    "score = 80\n",
+    "grade = \"A\"\n",
+    "\n",
+    "# if 조건문 \n",
+    "if score >= 90:\n",
+    "    grade = \"A\"\n",
+    "elif 80 <= score < 90:\n",
+    "    grade = \"B\"\n",
+    "else:\n",
+    "    grade = \"C\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "grade"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### tvList2 = [ 'UN40EN001', 'LEDTV_UN40EN002', 'LEDTV_LEDTV_UN40EN003’, ‘ledtv_UN40EN004’] 리스트에서 LEDTV_가 한 개만 앞에 붙도록 하세요 (* 대소문자 구분없이 전부 처리!) * 과제~ until 3/23"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 리스트 생성\n",
+    "tvList2 = ['UN40EN001', 'LEDTV_UN40EN002', 'LEDTV_LEDTV_UN40EN003','ledtv_UN40EN004']\n",
+    "tvList2Len = len(tvList2)\n",
+    "\n",
+    "# 변수생성\n",
+    "preFix = \"LEDTV_\"\n",
+    "\n",
+    "# for문으로 LEDTV_를 전부 공백으로 처리\n",
+    "for i in range(0, tvList2Len):\n",
+    "    listUpper = tvList2[i].upper()\n",
+    "    tvList2[i] = listUpper.replace(\"LEDTV_\", \"\")\n",
+    "    tvList2[i] = preFix + tvList2[i]\n",
+    "    \n",
+    "# 완성된 리스트 출력\n",
+    "print(tvList2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 자신만의 데이터프레임을 생성해보세요"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>kda</th>\n",
+       "      <th>level</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>야스오</td>\n",
+       "      <td>0.25</td>\n",
+       "      <td>10</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>요네</td>\n",
+       "      <td>13.00</td>\n",
+       "      <td>16</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>티모</td>\n",
+       "      <td>0.50</td>\n",
+       "      <td>13</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>마스터이</td>\n",
+       "      <td>1.00</td>\n",
+       "      <td>12</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>그라가스</td>\n",
+       "      <td>0.80</td>\n",
+       "      <td>9</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   name    kda  level\n",
+       "0   야스오   0.25     10\n",
+       "1    요네  13.00     16\n",
+       "2    티모   0.50     13\n",
+       "3  마스터이   1.00     12\n",
+       "4  그라가스   0.80      9"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# pandas 임포트\n",
+    "import pandas as pd\n",
+    "\n",
+    "# 리스트, 딕셔너리 생성\n",
+    "nameList = [\"야스오\", \"요네\", \"티모\", \"마스터이\", \"그라가스\"]\n",
+    "kdaList = [0.25, 13, 0.5, 1, 0.8]\n",
+    "levelList = [10, 16, 13, 12, 9]\n",
+    "\n",
+    "lolDict = {\"name\" : nameList,\n",
+    "           \"kda\" : kdaList,\n",
+    "           \"level\" : levelList}\n",
+    "\n",
+    "# 데이터프레임 생성\n",
+    "pd.DataFrame(lolDict)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+<<<<<<< HEAD
+    "tvList2 = ['UN40EN001', 'LEDTV_UN40EN002', 'LEDTV_LEDTV_UN40EN003','ledtv_UN40EN004']\n",
+    "\n",
+    "# (문제분석) 입력데이터 접두어 \"LEDTV_\" 이게 2번이상 또는 아예 안 나올수도 있다.\n",
+    "# 대문자로 표현해야함\n",
+    "\n",
+    "# Step1: 모델코드를 불러온다. (접두어가 2개 1개 0개 붙을 수 있다)\n",
+    "\n",
+    "for i in range(0, len(tvList2)):\n",
+    "\n",
+    "    # 디버깅 코드\n",
+    "    loadedModel = tvList2[i]\n",
+    "\n",
+    "    # Step2: 대문자로 변환시킨다.\n",
+    "\n",
+    "    modelUpper = loadedModel.upper()\n",
+    "\n",
+    "    # Step3: 접두어를 찾아서 하나만 붙인다. (상세로직)\n",
+    "    #        모델코드를 찾고 접두어를 하나만 붙인다.\n",
+    "    # 하나도 없을때 (clear) -> prefix + 대문자변환 기존값\n",
+    "    # 1개 이상일때\n",
+    "\n",
+    "    preFix = \"LEDTV_\"\n",
+    "    preFixCnt = modelUpper.count(preFix)\n",
+    "\n",
+    "    if preFixCnt == 0:   #로직 구현\n",
+    "        modelUpper = preFix + modelUpper\n",
+    "    elif preFixCnt >=1:\n",
+    "        modelUpper = preFix + modelUpper.replace(preFix,\"\") \n",
+    "\n",
+    "# Step4: 정상모델코드를 출력한다.\n",
+    "\n",
+    "    cvtModel = modelUpper\n",
+    "    tvList2[i] = cvtModel\n",
+    "    \n",
+    "print(tvList2)\n",
+    "\n",
+    "# 분산처리에 강한 코딩방식"
+=======
+    "lolDict[\"wanted\"] = [0, 700, 0, 0, 0]"
+>>>>>>> 1b7543286ce6f199d46216a87fe83d8d1775d6a7
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = 2\n",
+    "b = 5.3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "revenue = a/b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 미션 : 소수점 둘째자리 반올림"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def roundFunction(inValue):    \n",
+    "    # Step1: 입력받은 데이터를 반올림 자리수만큼 곱해준다.\n",
+    "    # 함수를 개발하기위한 디버깅코드\n",
+    "    # inValue = 1.893430903490\n",
+    "    step1 = inValue * 100\n",
+    "\n",
+    "\n",
+    "    # Step2: 곱해준결과에 0.5를 더한 후 소수점이하 버림!\n",
+    "    step2 = int(step1 + 0.5)\n",
+    "\n",
+    "    # Step3: 100으로 나누어준다.\n",
+    "    step3 = step2 / 100\n",
+    "    outValue = step3\n",
+    "    \n",
+    "    return outValue"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "revenue = 1.42243334"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "displatedRevenue = roundFunction(revenue)\n",
+    "displatedRevenue"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "accuracy = 89.12324125213"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "displatedAccuracy = roundFunction(accuracy)\n",
+    "displatedAccuracy"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "globalVar = 0.5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "globalMeanValue = 0.0\n",
+    "# 전역변수"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def simpleFunction(inValue1, inValue2):\n",
+    "    localValue = 0.0\n",
+    "    defaultValue = localValue\n",
+    "    # 분모가 0인경우 기본값 1\n",
+    "    if inValue2 != 0:\n",
+    "        meanValue = inValue1/inValue2\n",
+    "    else: \n",
+    "        meanValue = localValue\n",
+    "    outValue = meanValue\n",
+    "    outValue"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 함수 입력변수에 따라 소수점 2자리수, 3자리 등의 반올림이 가능하도록 함수를 구현하세요 (예: roundFunction(12.2225,3) -> 3번째자리 반올림)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def roundFunction2 (inValue, optionValue):\n",
+    "    # 디버깅코드\n",
+    "    # inValue = 1.2225\n",
+    "    # optionValue = 4\n",
+    "    \n",
+    "    step1 = inValue * 10**optionValue\n",
+    "\n",
+    "    # Step2: 곱해준결과에 0.5를 더한 후 소수점이하 버림!\n",
+    "    step2 = int(step1 + 0.5)\n",
+    "\n",
+    "    # Step3: 100으로 나누어준다.\n",
+    "    step3 = step2 / 10**optionValue\n",
+    "    outValue = step3\n",
+    "    \n",
+    "    return outValue"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def myRoundFunction(inValue1, n):\n",
+    "    #Step1 : 입력받은 데이터를 10의 n-1승만큼 곱해준다.\n",
+    "    step1 = inValue1 * (10 ** (n-1))\n",
+    "\n",
+    "    #Step2 : 곱해준결과에 0.5를 더한 후 소수점이하 버림!\n",
+    "    step2 = int(step1 + 0.5)\n",
+    "\n",
+    "    #Step3 : 10의 n-1승만큼 나누어준다.\n",
+    "    step3 = step2 / (10 ** (n-1))\n",
+    "    newRound = step3\n",
+    "\n",
+    "    return newRound"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "myRoundFunction(12.567834543743,7)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "roundFunction2(1.2225,4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mergedSet = []"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "에러파일명 : ./a2.txt\n",
+      "[Errno 2] No such file or directory: './a2.txt'\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "for i in range(1,4):\n",
+    "    try:\n",
+    "        fileName = \"./a\"+str(i)+\".txt\"\n",
+    "        mergedSet.append( pd.read_csv(fileName) )\n",
+    "    except Exception as e:\n",
+    "        print(\"에러파일명 : {}\".format(fileName))\n",
+    "        print(e)  ## print(e)를 찍긴 찍어야 한다!"
+=======
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>kda</th>\n",
+       "      <th>level</th>\n",
+       "      <th>wanted</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>야스오</td>\n",
+       "      <td>0.25</td>\n",
+       "      <td>10</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>요네</td>\n",
+       "      <td>13.00</td>\n",
+       "      <td>16</td>\n",
+       "      <td>700</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>티모</td>\n",
+       "      <td>0.50</td>\n",
+       "      <td>13</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>마스터이</td>\n",
+       "      <td>1.00</td>\n",
+       "      <td>12</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>그라가스</td>\n",
+       "      <td>0.80</td>\n",
+       "      <td>9</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   name    kda  level  wanted\n",
+       "0   야스오   0.25     10       0\n",
+       "1    요네  13.00     16     700\n",
+       "2    티모   0.50     13       0\n",
+       "3  마스터이   1.00     12       0\n",
+       "4  그라가스   0.80      9       0"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.DataFrame(lolDict)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mergedSet.append( pd.read_csv(\"./a1.txt\") )\n",
+    "mergedSet.append( pd.read_csv(\"./a2.txt\") )\n",
+    "mergedSet.append( pd.read_csv(\"./a3.txt\") )\n",
+    "print(mergedSet)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+=======
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>kda</th>\n",
+       "      <th>level</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>야스오</td>\n",
+       "      <td>0.25</td>\n",
+       "      <td>10</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>요네</td>\n",
+       "      <td>13.00</td>\n",
+       "      <td>16</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>티모</td>\n",
+       "      <td>0.50</td>\n",
+       "      <td>13</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>마스터이</td>\n",
+       "      <td>1.00</td>\n",
+       "      <td>12</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>그라가스</td>\n",
+       "      <td>0.80</td>\n",
+       "      <td>9</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   name    kda  level\n",
+       "0   야스오   0.25     10\n",
+       "1    요네  13.00     16\n",
+       "2    티모   0.50     13\n",
+       "3  마스터이   1.00     12\n",
+       "4  그라가스   0.80      9"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "lol = pd.DataFrame(zip(nameList, kdaList, levelList))  # list 바로 쓸때는 zip!\n",
+    "lol.columns = [\"name\", \"kda\", \"level\"]\n",
+    "lol"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

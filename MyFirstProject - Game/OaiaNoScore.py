@@ -7,20 +7,7 @@
 import pygame 
 from pygame.locals import *
 import random # 파이프 길이 랜덤생성을 위한 라이브러리
-import cx_Oracle # 오라클 import
-import sys # argument 활용위한 import
-
-
-# argument 받기
-if __name__ == '__main__':
-    argument = sys.argv
-    del argument[0]			# 첫번째 인자는 Oaia.py 즉 실행시킨 파일명이 되기 때문에 지운다!
-realArgument = ','.join(argument) # String
-
-
-# 아이콘 그림 생성
-gameIcon = pygame.image.load('C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/icon.png')
-pygame.display.set_icon(gameIcon)
+import sqlite3
 
 
 
@@ -31,15 +18,12 @@ pygame.display.set_icon(gameIcon)
 
 pygame.init()
 
-# dsn 생성 (오라클)
-dsn = cx_Oracle.makedsn("localhost",1521,"xe")
-# db접속 오라클
-db = cx_Oracle.connect("oaiagame","oaiagame",dsn)
-# 커서 생성
-cur = db.cursor()
+# conn = sqlite3.connect("C:/tomcat/oaia.db")
+# cur = conn.cursor()
 
-
-
+# conn.execute('CREATE TABLE oaia_data(idx INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT, password TEXT, score INTEGER, created TEXT, updated TEXT)')
+# if conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='{oaia_data}';"): # 만약 테이블이 있으면
+    
 
 clock = pygame.time.Clock()
 fps = 60
@@ -73,7 +57,7 @@ pass_pipe = False
 # bg = pygame.image.load("./img/bgKopo.png") # 배경
 bg = pygame.image.load("C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/bgKopo.png") # 배경
 groung_img = pygame.image.load("C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/ground.png") # 땅 
-button_img = pygame.image.load('C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/restart.png') # 다시하기 버튼
+button_img = pygame.image.load("C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/restart.png") # 다시하기 버튼
 
 
 def draw_text(text, font, text_col, x, y): # pygame은 텍스트출력 지원안하므로, 그려야함
@@ -150,7 +134,7 @@ class Bird(pygame.sprite.Sprite): # pygame의 sprite 클래스 이용 (update & 
 class Pipe(pygame.sprite.Sprite):
     def __init__(self, x, y, position):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/pipe.png')
+        self.image = pygame.image.load("C:/Users/Owner/Desktop/team7Project/MyFirstProjectGame/img/pipe.png")
         self.rect = self.image.get_rect()
         # position 1 is from the top, -1 is from the bottom
         if position == 1:
@@ -266,18 +250,22 @@ while run:
         
         if button.draw() == True: # 즉, 버튼을 눌렀을 때 return action -> True
             game_over = False
-            # restart 누를 때 score 담아줌.
-            cur.execute( "UPDATE ranking SET score={} WHERE (nickname = '{}') AND (score <= {} )".format(score, realArgument, score) )
-            db.commit()  
+#             cur.execute( # restart 누를 때 score 담아줌.
+#             "INSERT INTO oaia_data (id, password, score, created, updated) VALUES (?, ?, ?, ?, ?)",
+#             ('a', 'a', score, 'a', 'a')
+#             )
+#             conn.commit()  
             
             score = reset_game() # return score (value of 0) 이므로
     
     # event handler
     for event in pygame.event.get():
         if event.type == pygame.QUIT: # 종료버튼(X) 누르면 종료
-            # 종료버튼 누를 때 score 담아줌.
-            cur.execute( "UPDATE ranking SET score={} WHERE (nickname = '{}') AND (score <= {} )".format(score, realArgument, score) )
-            db.commit()  
+#             cur.execute( # 종료버튼 누를 때 score 담아줌.
+#             "INSERT INTO oaia_data (id, password, score, created, updated) VALUES (?, ?, ?, ?, ?)",
+#             ('a', 'a', score, 'a', 'a')
+#             )
+#             conn.commit() 
             run = False
             
         if event.type == pygame.MOUSEBUTTONDOWN and flying == False and game_over == False: 
@@ -287,6 +275,6 @@ while run:
      
     
 pygame.quit()
-cur.close()
-db.close()
+
+
 
